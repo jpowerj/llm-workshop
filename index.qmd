@@ -1,0 +1,40 @@
+---
+title: "LLMs for Overcoming Languager Barriers"
+author:
+  name: "Jeff Jacobs"
+  email: "jj1088@georgetown.edu"
+date: 2024-09-13
+format:
+  revealjs:
+    html-math-method: mathjax
+    df-print: kable
+    css: jjstyles.css
+    include-in-header:
+      text: |
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">"
+---
+
+# Machine Translation and Multilingual LLMs
+
+## How Does Google Translate Decide Which Word(s) to Pick?
+
+* Parallel corpora
+* For each word $w_i^S$ in language $S$ (for Source), can see how often it was translated into $w_j^T$ in language $T$ (for Target)
+* **Without context**: "majority vote" wins
+* However, neural nets (RNNs, Transformers) allow us to incorporate **context** for better translations
+
+## Context-Sensitive Machine Translation {.smaller .title-10}
+
+* Consider the term **train**:
+* <i class='bi bi-0-circle'></i> If someone just asks you to translate "train"... 火车. This may or may not be a good translation, depending on the **context**!
+* <i class='bi bi-1-circle'></i> In the DSAN program, you might say:
+    
+    > "I need to **train** my neural network."
+    * Seeing *"money"* in the same sentence allows us to choose 火车 (*huǒchē*)
+
+* <i class='bi bi-2-circle'></i> To *get to* the DSAN program, you might have said:
+   
+    > I took the **train** to Washington, DC.
+
+    * Seeing a *location* in the same sentence shifts posterior probabilities towards 训练 (*xùnliàn*)
+
